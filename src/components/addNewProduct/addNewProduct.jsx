@@ -10,8 +10,8 @@ export function AddNewProduct() {
 			if (event.target.value) {
 				// Tutaj wykonaj dowolne działania, które mają być wykonane po naciśnięciu Enter
 				addProduct(event.target.value);
+				// console.log("Dodawanie prodktu o kodzie: ", event.target.value);
 				event.target.value = "";
-				console.log("Dodawanie prodktu o kodzie: ", event.target.value);
 			}
 		}
 	};
@@ -24,6 +24,7 @@ export function AddNewProduct() {
 					type="text"
 					id="new_product"
 					name="new_product"
+					autoComplete="off"
 					onKeyDown={handleKeyPress}
 				/>
 			</label>

@@ -25,6 +25,12 @@ export const EditMenuProvider = ({ children }) => {
 	const closeEditMenu = () => {
 		console.log("zamknieto");
 		SetEditMenuOpen(false);
+
+		const inputElement = document.getElementById("new_product");
+
+		if (inputElement) {
+			inputElement.focus();
+		}
 	};
 
 	return (
