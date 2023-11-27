@@ -54,15 +54,7 @@ const ListaProduktów = {
 
 // Utwórz dostawcę kontekstu, który zawiera stan i funkcje manipulujące stanem
 export const ProductsProvider = ({ children }) => {
-	const [products, setProducts] = useState([
-		{
-			kod: 1,
-			id: 0,
-			name: "Product 1",
-			value: 1,
-			one_price: 14.99,
-		},
-	]);
+	const [products, setProducts] = useState([]);
 
 	// const addProduct = (newProduct) => {
 	// 	setProducts((prevProducts) => [...prevProducts, newProduct]);
