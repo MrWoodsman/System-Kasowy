@@ -3,7 +3,7 @@
 
 **Jest to system kasowy napisany w React, który pozwala dodać produkt do listy za pomocą kodu, umożliwia zmianę liczby wybranego produktu.**
 
-## [Przetestuj](https://mrwoodsman.github.io/Money-Track/)
+## [Przetestuj](https://mrwoodsman.github.io/System-Kasowy/)
 
 ## Wszystkie dostępne produkty
 
