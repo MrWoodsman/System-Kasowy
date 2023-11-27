@@ -1,0 +1,14 @@
+@import "../../global.scss";
+
+.footer {
+	color: $WhiteColor;
+
+	display: flex;
+	justify-content: flex-end;
+
+	padding: 16px;
+	.sum_value {
+		word-spacing: 8px;
+		letter-spacing: -2px;
+	}
+}
