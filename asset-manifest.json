@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/System-Kasowy/static/css/main.c0cda748.css",
+    "main.js": "/System-Kasowy/static/js/main.ed21fcc4.js",
+    "index.html": "/System-Kasowy/index.html",
+    "main.c0cda748.css.map": "/System-Kasowy/static/css/main.c0cda748.css.map",
+    "main.ed21fcc4.js.map": "/System-Kasowy/static/js/main.ed21fcc4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0cda748.css",
+    "static/js/main.ed21fcc4.js"
+  ]
+}
