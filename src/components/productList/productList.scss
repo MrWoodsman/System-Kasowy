@@ -1,6 +1,6 @@
 @import "../../global.scss";
 
-.product_list {
+#product_list {
 	color: $WhiteColor;
 
 	width: 100%;
@@ -16,6 +16,11 @@
 			font-size: 1.15em;
 			font-weight: 600;
 			border-left: 2px solid rgba($WhiteColor, 0.25);
+		}
+		thead {
+			td:last-child {
+				border-right: 2px solid rgba($WhiteColor, 0.25);
+			}
 		}
 		tbody {
 			tr:hover {
@@ -48,7 +53,25 @@
 			}
 			td:nth-child(6) {
 				width: 140px;
+				border-right: 2px solid rgba($WhiteColor, 0.25);
 			}
 		}
+	}
+	.selected_product {
+		position: relative;
+		&::after {
+			content: "";
+			width: calc(100% - 5px);
+			height: calc(100% - 4px);
+			position: absolute;
+			left: 0;
+			top: 0;
+			border: 2px solid $AccentColor;
+			border-radius: 4px;
+		}
+	}
+	.bottom_border {
+		width: 100%;
+		height: 50px;
 	}
 }
