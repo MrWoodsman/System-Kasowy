@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/System-Kasowy/static/css/main.dec0f45b.css",
-    "main.js": "/System-Kasowy/static/js/main.0283909f.js",
+    "main.js": "/System-Kasowy/static/js/main.76a4bb3a.js",
     "index.html": "/System-Kasowy/index.html",
     "main.dec0f45b.css.map": "/System-Kasowy/static/css/main.dec0f45b.css.map",
-    "main.0283909f.js.map": "/System-Kasowy/static/js/main.0283909f.js.map"
+    "main.76a4bb3a.js.map": "/System-Kasowy/static/js/main.76a4bb3a.js.map"
   },
   "entrypoints": [
     "static/css/main.dec0f45b.css",
-    "static/js/main.0283909f.js"
+    "static/js/main.76a4bb3a.js"
   ]
 }
