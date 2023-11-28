@@ -12,6 +12,7 @@ function AllProductsTable({ produkty }) {
 		<tbody>
 			{produkty.map((item, index) => (
 				<tr
+					item_index={index}
 					className="product_item"
 					key={index}
 					db_id={item.id}
@@ -51,11 +52,6 @@ export function ProductList() {
 	const [sortType, setSortType] = useState(1);
 	const [sortDirection, setSortDirection] = useState(0);
 
-	// const [actualSelectedProduct, setActualSelectedProduct] = useState(null);
-	let actualSelectedProduct = 0;
-
-	// const [activeProduct, setActiveProduct] = useState(0);
-
 	useEffect(() => {
 		setLocalProducts(products);
 	}, [products]);
@@ -76,41 +72,92 @@ export function ProductList() {
 		}
 	}
 
-	function setSelectedProduct(num) {
-		const allProducts = document.querySelectorAll(".product_item");
-		allProducts.forEach((e) => {
-			e.classList.remove("selected_product");
+	function findElementByIndex(num) {
+		const productsItems = document.querySelectorAll(".product_item");
+
+		for (const e of productsItems) {
+			if (e.getAttribute("item_index") == num) {
+				return e;
+			}
+		}
+
+		// If the loop completes without finding the element, return null or handle appropriately.
+		return null;
+	}
+
+	function findElementWithMinIndex() {
+		const productsItems = document.querySelectorAll(".product_item");
+
+		let minIndexElement = null;
+		let minIndex = Infinity;
+
+		for (const e of productsItems) {
+			const currentIndex = parseInt(e.getAttribute("item_index"));
+
+			if (!isNaN(currentIndex) && currentIndex < minIndex) {
+				minIndex = currentIndex;
+				minIndexElement = e;
+			}
+		}
+
+		return minIndexElement;
+	}
+
+	function findElementWithMaxIndex() {
+		const productsItems = document.querySelectorAll(".product_item");
+
+		let maxIndexElement = null;
+		let maxIndex = -Infinity;
+
+		for (const e of productsItems) {
+			const currentIndex = parseInt(e.getAttribute("item_index"));
+
+			if (!isNaN(currentIndex) && currentIndex > maxIndex) {
+				maxIndex = currentIndex;
+				maxIndexElement = e;
+			}
+		}
+
+		return maxIndexElement;
+	}
+
+	function removeSelectedProductClass() {
+		const selectedProducts = document.querySelectorAll(".selected_product");
+
+		selectedProducts.forEach((element) => {
+			element.classList.remove("selected_product");
 		});
-
-		let toChange = actualSelectedProduct + num;
-
-		allProducts[toChange].classList.add("selected_product");
-		actualSelectedProduct = toChange;
 	}
 
 	// Wywołanie po załadowaniu produktów
 	useEffect(() => {
-		console.warn(products.length, lastLength);
+		setLastLenght(products.length);
+		test();
+	}, [localProducts]);
+
+	function test() {
+		// console.warn(products.length, lastLength);
 		if (products.length > lastLength) {
 			setLastLenght(products.length);
 
-			const allProducts = document.querySelectorAll(".product_item");
-			if (allProducts.length > 0) {
-				allProducts.forEach((e) => {
-					e.classList.remove("selected_product");
-				});
+			// const allProducts = document.querySelectorAll(".product_item");
+			// if (allProducts.length > 0) {
+			// 	allProducts.forEach((e) => {
+			// 		e.classList.remove("selected_product");
+			// 	});
 
-				actualSelectedProduct = allProducts.length - 1;
+			// 	setActualSelectedProduct(allProducts.length - 1);
 
-				const lastAllProducts = allProducts[allProducts.length - 1];
-				lastAllProducts.classList.add("selected_product");
-			}
+			// 	const lastAllProducts = allProducts[allProducts.length - 1];
+			// 	lastAllProducts.classList.add("selected_product");
+			// }
 		}
 		scrollToBottom();
-	}, [localProducts]);
-
+	}
 	// Przesuwanie na sam dół jesli lista sie zmieniła
 	const [lastLength, setLastLenght] = useState(0);
+
+	const [selectedProductNum, setSelectedProductNum] = useState(null);
 
 	const scrollToBottom = () => {
 		if (products.length > lastLength) {
@@ -125,34 +172,35 @@ export function ProductList() {
 
 	// Sterowanie wybranym elementem Góra / Dół
 	const handleKeyDown = (event) => {
-		const allProducts = document.querySelectorAll(".product_item");
-
-		if (allProducts.length > 0) {
-			if (event.key === "ArrowUp") {
-				if (actualSelectedProduct > 0) {
-					setSelectedProduct(-1);
-				} else if (actualSelectedProduct === 0) {
-					setSelectedProduct(allProducts.length - 1);
-				}
-			} else if (event.key === "ArrowDown") {
-				if (actualSelectedProduct < allProducts.length - 1) {
-					setSelectedProduct(1);
-				} else if (actualSelectedProduct >= allProducts.length - 1) {
-					setSelectedProduct(-(allProducts.length - 1));
-				}
-			} else if (event.key === "Control") {
-				let ProductValue =
-					allProducts[actualSelectedProduct].getAttribute("element_value");
-				let ProductId =
-					allProducts[actualSelectedProduct].getAttribute("db_id");
-				console.log(ProductValue, ProductId);
-				openEditMenu(
-					"Zmiana liczby produktu",
-					parseFloat(ProductValue),
-					parseInt(ProductId)
-				);
-			}
-		}
+		console.log(findElementWithMaxIndex());
+		console.log(findElementByIndex(3));
+		console.log(findElementWithMinIndex());
+		console.warn(selectedProductNum);
+		// console.log("Key pressed:", event.key);
+		// console.log("Actual selected product:", actualSelectedProduct);
+		// const allProducts = document.querySelectorAll(".product_item");
+		// if (allProducts.length > 0) {
+		// 	if (event.key === "ArrowUp") {
+		// 		if (actualSelectedProduct > 0) {
+		// 			setSelectedProduct(-1);
+		// 		}
+		// 	} else if (event.key === "ArrowDown") {
+		// 		if (actualSelectedProduct < allProducts.length - 1) {
+		// 			setSelectedProduct(1);
+		// 		}
+		// 	} else if (event.key === "Control") {
+		// 		let ProductValue =
+		// 			allProducts[actualSelectedProduct].getAttribute("element_value");
+		// 		let ProductId =
+		// 			allProducts[actualSelectedProduct].getAttribute("db_id");
+		// 		console.log(ProductValue, ProductId);
+		// 		openEditMenu(
+		// 			"Zmiana liczby produktu",
+		// 			parseFloat(ProductValue),
+		// 			parseInt(ProductId)
+		// 		);
+		// 	}
+		// }
 	};
 
 	useEffect(() => {

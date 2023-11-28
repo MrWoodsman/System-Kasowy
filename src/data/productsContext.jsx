@@ -74,7 +74,7 @@ export const ProductsProvider = ({ children }) => {
 			return result;
 		}, []);
 
-		console.log(optimizedList);
+		// console.log(optimizedList);
 	};
 
 	const addProduct = (kod) => {
