@@ -170,47 +170,6 @@ export function ProductList() {
 		}
 	};
 
-	// Sterowanie wybranym elementem Góra / Dół
-	const handleKeyDown = (event) => {
-		console.log(findElementWithMaxIndex());
-		console.log(findElementByIndex(3));
-		console.log(findElementWithMinIndex());
-		console.warn(selectedProductNum);
-		// console.log("Key pressed:", event.key);
-		// console.log("Actual selected product:", actualSelectedProduct);
-		// const allProducts = document.querySelectorAll(".product_item");
-		// if (allProducts.length > 0) {
-		// 	if (event.key === "ArrowUp") {
-		// 		if (actualSelectedProduct > 0) {
-		// 			setSelectedProduct(-1);
-		// 		}
-		// 	} else if (event.key === "ArrowDown") {
-		// 		if (actualSelectedProduct < allProducts.length - 1) {
-		// 			setSelectedProduct(1);
-		// 		}
-		// 	} else if (event.key === "Control") {
-		// 		let ProductValue =
-		// 			allProducts[actualSelectedProduct].getAttribute("element_value");
-		// 		let ProductId =
-		// 			allProducts[actualSelectedProduct].getAttribute("db_id");
-		// 		console.log(ProductValue, ProductId);
-		// 		openEditMenu(
-		// 			"Zmiana liczby produktu",
-		// 			parseFloat(ProductValue),
-		// 			parseInt(ProductId)
-		// 		);
-		// 	}
-		// }
-	};
-
-	useEffect(() => {
-		document.addEventListener("keydown", handleKeyDown);
-		// Clean-up effect
-		return () => {
-			document.removeEventListener("keydown", handleKeyDown);
-		};
-	}, []);
-
 	return (
 		<div id="product_list">
 			<table>
