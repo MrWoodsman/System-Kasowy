@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.dec0f45b.css",
-    "main.js": "/static/js/main.0283909f.js",
-    "index.html": "/index.html",
-    "main.dec0f45b.css.map": "/static/css/main.dec0f45b.css.map",
-    "main.0283909f.js.map": "/static/js/main.0283909f.js.map"
+    "main.css": "/System-Kasowy/static/css/main.dec0f45b.css",
+    "main.js": "/System-Kasowy/static/js/main.0283909f.js",
+    "index.html": "/System-Kasowy/index.html",
+    "main.dec0f45b.css.map": "/System-Kasowy/static/css/main.dec0f45b.css.map",
+    "main.0283909f.js.map": "/System-Kasowy/static/js/main.0283909f.js.map"
   },
   "entrypoints": [
     "static/css/main.dec0f45b.css",
